@@ -1,7 +1,8 @@
 from doctest import OutputChecker
 import numpy as np
+import nnfs
 
-np.random.seed(0)
+nnfs.init()
 
 X = [[1, 2, 3, 2.5],
         [2.0,5.0,-1.0,2.0],
@@ -14,6 +15,14 @@ class Layer_Dense: #used a random.seed to produce a random values for my array
     def foward(self, inputs):
         self.output = np.dot(inputs, self.weights) + self.biases # calculate the output using dot product
 
+class Activation_ReLU:
+    def foward(self,inputs):
+        self.output = np.maximum(0, inputs)
+
+
+
+
+
 layer1 = Layer_Dense(4,5)  #parameters: (size of input, how many neurons we have)
 layer2 = Layer_Dense(5,2) # the input of layer2 has to be the output of layer1
 
@@ -22,10 +31,17 @@ print(layer1.output)
 layer2.foward(layer1.output)
 print(layer2.output)
 
+#understand the difference between ReLU activation and linear activation 
 
-
-
-
+#ReLu function example: 
+#inputs = [0, 2, -1, 3.3, -2.7, 1.1, 2.2, -100]
+#output = []
+#for i in inputs: 
+ #   if i > 0:
+ #       output.append(i)
+ #   elif i<=0:
+ #       output.append(0)
+#print(output)
 
 
 
