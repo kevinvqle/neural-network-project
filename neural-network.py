@@ -36,6 +36,8 @@ class Loss_CatergoricalCrossentropy(Loss):
             correct_confidences = y_pred_clipped[range(samples),y_true]
         elif len(y_true.shape) == 2:
             correct_confidences = np.sum(y_pred_clipped * y_true, axis = 1)
+        negative_log_likelihoods = -np.log(correct_confidences)
+        return negative_log_likelihoods
 
 X,y = spiral_data(samples=100, classes = 3)
 
@@ -52,6 +54,10 @@ dense2.forward(activation1.output)
 activation2.forward(dense2.output)
 
 print(activation2.output[:5])
+
+loss_function = Loss_CatergoricalCrossentropy()
+loss = loss_function.calculate(activation2.output,y)
+print(loss)
 
 
 
