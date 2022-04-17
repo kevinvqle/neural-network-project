@@ -10,10 +10,11 @@ class Layer_Dense: #used a random.seed to produce a random values for my array
     def __init__(self,n_inputs, n_neurons):
         self.weights = np.random.randn(n_inputs,n_neurons) 
         self.biases = np.zeros(1,n_neurons) 
-    def foward(self):
-        pass
+    def foward(self,inputs):
+        self.output = np.dot(inputs, self.weights + self.biases) # calculate the output using dot product
 
-print(0.10*np.random.randn(4,3))
+layer1 = Layer_Dense(4,5)  #parameters: (size of input, how many neurons we have)
+layer2 = Layer_Dense(5,5) # the input of layer2 has to be the output of layer1
 
 
 
