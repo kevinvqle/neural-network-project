@@ -21,4 +21,4 @@ for neuron_weights, neuron_bias in zip(weights, biases):
     neuron_output += neuron_bias
     layer_outputs.append(neuron_output)
 
-print(layer_outputs)
+print(layer_outputs) #returns output
