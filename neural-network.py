@@ -8,7 +8,8 @@ weights = [0.2,0.8,-0.5,1]
 
 bias = 2
 
-
+output = np.dot(inputs,weights) + bias 
+print (output)
 #weights = [[0.2,0.8,-0.5,1],
 #            [0.5, -0.91, 0.26, -0.5],
 #            [-0.26, -0.27, 0.17, 0.87]
