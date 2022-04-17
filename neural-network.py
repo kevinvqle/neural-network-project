@@ -12,8 +12,17 @@ weights = [[0.2, 0.8, -0.5, 1],
 
 biases = [2,3,0.5]
 
-output = np.dot(weights,inputs) + biases
-print (output)
+weights2 = [[0.1, -0.14, 0.5],
+           [-0.5,0.12,-0.33],
+          [-0.44, 0.73, -0.13]]
+
+biases2 = [-1,2,-0.5]
+
+
+
+layer1_output = np.dot(inputs, np.array(weights).T) + biases # ultilized transpose in order to mulitply by a 4x4 matricies 
+
+print (layer1_output)
 
 
 
